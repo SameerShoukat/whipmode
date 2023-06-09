@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="270" height="316" viewBox="0 0 270 316">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_30" data-name="Rectangle 30" width="270" height="316" transform="translate(0 475)" fill="#525252" stroke="#707070" stroke-width="1" opacity="0.13"/>
+    </clipPath>
+    <filter id="Ellipse_4" x="-371" y="-6" width="650" height="650" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Mask_Group_5" data-name="Mask Group 5" transform="translate(0 -475)" clip-path="url(#clip-path)">
+    <g transform="matrix(1, 0, 0, 1, 0, 475)" filter="url(#Ellipse_4)">
+      <circle id="Ellipse_4-2" data-name="Ellipse 4" cx="316" cy="316" r="316" transform="translate(-362)" fill="#eb4e4a"/>
+    </g>
+  </g>
+</svg>
