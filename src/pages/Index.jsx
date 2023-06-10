@@ -1,24 +1,23 @@
 import React from "react";
-import Form from "../components/Form";
-import Banner from "../components/Banner";
-import LatestInventory from "../components/LatestInventory";
-import HowItsWork from "../components/HowItsWork";
-import PricingSec from "../components/PricingSec";
-import MobileAppSec from "../components/MobileAppSec";
-import Footer from "../components/Footer";
+import FormContainer from "../component/searchForm";
+import Banner from "../sections/Banner";
+import LatestInventory from "../sections/LatestInventory";
+import HowItsWork from "../sections/HowItsWork";
+import PricingSec from "../sections/PricingSec";
+import MobileAppSec from "../sections/MobileAppSec";
+import Footer from "../sections/Footer";
 
-const index = () => {
+const Home = () => {
   return (
     <>
-      <Form/>
+      <FormContainer />
       <Banner/>
       <LatestInventory/>
       <HowItsWork/>
       <PricingSec/>
       <MobileAppSec/>
-      <Footer/>
     </>
   );
 };
 
-export default index;
+export default Home;

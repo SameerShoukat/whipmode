@@ -1,0 +1,386 @@
+:root {
+    --primary-color: #EB4E4A;
+    --white: #ffffff;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 5px;
+    height : 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary-color); 
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);; 
+  }
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+.mb-0{
+    margin-bottom: 0;
+}
+
+.style-container {
+    padding: 15px;
+}
+
+.text-center {
+    text-align: center;
+}
+.h-100{
+    height: 100%;
+}
+
+.banner{
+    width: 100%;
+    background-size:cover ;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+}
+.sign-banner {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    background-color: var(--primary-color);
+}
+
+.overlay::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    top: 0;
+    left: 0;
+}
+
+.main-heading {
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba($color: #000000, $alpha: 0.2);
+    line-height: 1.1;
+}
+
+.sub-heading {
+    font-size: 30px;
+    color: black;
+    font-weight: 600;
+    line-height: 1.1;
+}
+.custom-input{
+    margin-bottom: 20px;
+    .ant-input-affix-wrapper{
+        border-radius: 7px ;
+    }
+    input{
+        height: 38px;
+        border-radius: 6px;
+    }
+    .ant-input-number-affix-wrapper{
+        width: 100%;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        border-radius: 7px;
+    }  
+    .ant-input-prefix{
+        margin-right: 10px;
+    } 
+}
+.style-btn {
+    height: 44px;
+    border-radius: 6px;
+    border: 0.2px solid;
+    font-size:16px ;
+}
+.w-100{
+    width: 100%;
+}
+.ml-10px{
+    margin-right: 10px;
+}
+.section{
+    padding: 50px 0;
+}
+.bg-white{
+    background-color: #ffffff;
+}
+.position-relative{
+    position: relative;
+}
+
+.style-btn{
+    display: inline-block;
+    height: 40px;
+    min-width: 160px;
+    text-align: center;
+}
+.custom-select{
+    width: 100%;
+    height: 47px;
+}
+.custom-select .ant-select-selector{
+    height: 100% !important;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.input-div{
+    padding: 0 10px;
+}
+
+.upload-input{
+    margin: 10px;
+
+    .ant-upload-list-picture-card-container{
+        width: 100%;
+        position: absolute;
+        background-color: #ffffff;
+    }
+    .ant-upload-select-picture-card{
+        width: 100%;
+    }
+    
+}
+
+.text-white{
+    color: #ffffff;
+}
+
+
+// for input arrow
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.sidebar-heading {
+    font-size: 25px;
+    margin-bottom: 0;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.header-notifications-dropdown{
+    min-width: 250px;
+    padding: 20px;
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 50%);
+    border-radius: 10px;
+}
+.ant-dropdown-link{
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.dropicon{
+    font-size: 24px;
+    color: #62c562;
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+.style-card{
+    border-radius: 10px;
+    
+    
+}
+.collector-card{
+    table{
+        width: 100%;
+    }
+    h2{
+        font-size: 28px;
+        font-weight: 700;
+    }
+    td{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 7px;
+        font-size: 15px;
+        border-bottom: 1px solid #f7f7f7;
+
+    }
+    span:first-child{
+        color: grey;
+    }
+    span{
+        width: 100%;
+
+    }
+    h4{
+        position: absolute;
+        top: 0;
+        font-size: 17px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+    }
+    .image-td{
+        padding-top: 20px;
+        position: relative;
+        span{
+            text-align: center;
+        }
+        img{
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+    .ant-btn span{
+        color: #ffffff;
+    }
+
+}
+
+.garbage-box{
+    padding: 20px;
+    border: 1px solid #cbc3c3;
+    box-shadow: 2px 2px 14px rgb(52 52 52 / 20%);
+    border-radius: 20px;
+    position: relative;
+    h5{
+        font-size: 16px;
+        margin-bottom: 0;
+        font-weight: 600;
+    }
+    h3{
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 0;
+        color: #acacac;
+    }
+    span{
+        font-size: 13px;
+        font-weight: 400;
+        color: #acacac;
+    }
+    svg{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 25px;
+        background: #acacac;
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        border-radius: 50px;
+        color: #fff;
+    }
+}
+.garbage-box.sale{
+    h3{
+        color: #62c562;
+    }
+    svg{
+        background-color: #62c562;
+    }
+}
+.ant-table table { font-size: 12px; }
+.amount-price{
+    font-size: 16px;
+    color: red;
+}
+.wrapper{
+    padding: 25px 0;
+}
+
+.bar-chart {
+    background: transparent
+      linear-gradient(62deg, #62c562 0%, #62c562 53%, #178817 100%) 0% 0%
+      no-repeat padding-box;
+    box-shadow: 0px 4px 6px #0000001f;
+  
+    border-radius: 8px;
+  }
+  .bar-chart {
+    width: 100% !important;
+    max-width: 100%;
+  }
+  
+.bar-chart line.apexcharts-xaxis-tick {
+    stroke: transparent;
+  }
+.bar-chart line.apexcharts-xaxis-tick {
+  stroke: transparent;
+}
+.style-card{
+    padding: 20px;
+    border: 1px solid #c3bfbf;
+    background-color: #ffffff;
+    h3{
+        font-size: 20px;
+        font-weight: 700;
+    }
+   
+}
+.weight-dabba{
+    padding: 10px;
+    border: 1px solid #c3bfbf;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 15px 0;
+
+}
+.marker-design{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 100;
+    top: 50%;
+    font-size: 20px;
+    background: #004600b0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border-radius: 50%;
+}
+.map-container{
+    width: 100%;
+    height: 400px;
+}

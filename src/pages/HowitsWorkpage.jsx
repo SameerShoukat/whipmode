@@ -1,22 +1,21 @@
 import React from "react";
-import Form from "../components/Form";
-import Banner2 from "../components/Banner2";
-import WhipmodeMember from "../components/WhipmodeMember";
-import Comfortable from "../components/Comfortable";
-import StartingTrip from "../components/StartingTrip";
-import MobileAppSec from "../components/MobileAppSec";
-import Footer from "../components/Footer";
+import FormContainer from "../component/searchForm";
+import Banner2 from "../sections/Banner2";
+import MemberSection from "../sections/members";
+import Comfortable from "../sections/Comfortable";
+import StartingTrip from "../sections/StartingTrip";
+import MobileAppSec from "../sections/MobileAppSec";
+import Footer from "../sections/Footer";
 
 const HowitsWorkpage = () => {
   return (
     <>
-      <Form />
+      <FormContainer />
       <Banner2/>
-      <WhipmodeMember/>
+      <MemberSection/>
       <Comfortable/>
       <StartingTrip/>
       <MobileAppSec/> 
-      <Footer/>
     </>
   );
 };
