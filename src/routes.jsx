@@ -8,6 +8,7 @@ import Helping from "./pages/Helping";
 import HowitsWorkpage from "./pages/HowitsWorkpage";
 import Pricing from "./pages/Pricing";
 import WebWrapper from "./sections/wrapper";
+import SignInPage from "./pages/sign";
 // admin routes
 // userAuth
 import { ProtectedRoute, AdminProtectedRoute, SupervisorProtectedRoute } from './hooks/useAuth';
@@ -15,11 +16,12 @@ import { ProtectedRoute, AdminProtectedRoute, SupervisorProtectedRoute } from '.
 export default function AppRoutes() {
     return (
         <Routes>
-            {/* <Route path="/signin" element={<SignInPage />} /> */}
-            {/* <Route path="/new_purchaser" element={<AddPurchaser />} /> */}
+    
+            {/* /* <Route path="/new_purchaser" element={<AddPurchaser />} /> */}
             <Route element={
                     <WebWrapper />
             }>
+                <Route path="/signin" element={<SignInPage />} /> 
                 <Route path="/" element={
                      <Home />
                 }>

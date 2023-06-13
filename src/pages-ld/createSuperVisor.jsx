@@ -22,11 +22,9 @@ import InputConfirmPassword from '../component/forms/inputConfirmPassword';
 import CustomInputNumber from '../component/forms/inputNumber';
 import CustomUploadFile from '../component/forms/uploadFile';
 import SuccessRoute from '../component/successRoute';
-
 import StyleMap from '../component/map';
-
 import bg from '../assets/images/clean.jpg';
-import { mapValues } from 'craco-less/lib/utils';
+
 
 // getting token
 

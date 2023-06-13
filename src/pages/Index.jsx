@@ -5,7 +5,6 @@ import LatestInventory from "../sections/LatestInventory";
 import HowItsWork from "../sections/HowItsWork";
 import PricingSec from "../sections/PricingSec";
 import MobileAppSec from "../sections/MobileAppSec";
-import Footer from "../sections/Footer";
 
 const Home = () => {
   return (

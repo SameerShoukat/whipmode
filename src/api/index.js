@@ -1,3 +1,4 @@
-// export const api = "http://uswms.herokuapp.com/api";
 
-export const api = "http://localhost:5000/api";
+export const googleKey = "AIzaSyDYmGdrMCYFRZCrrvA_QTid8YB53-HHT_E";
+
+export const api ="http://localhost/server"

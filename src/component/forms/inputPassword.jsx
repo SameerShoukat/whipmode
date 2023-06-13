@@ -3,7 +3,7 @@ import { Form, Input } from 'antd';
 export default function InputPassword({ name, icon, message }) {
     return (
         <Form.Item
-            className='custom-input mb-0'
+            className='custom-input'
             name={name}
             rules={[
                 {
