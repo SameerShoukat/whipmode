@@ -11,7 +11,9 @@ import Footer from "../sections/Footer";
 const Helping = () => {
   return (
     <>
-      <FormContainer />
+      <div className="container">
+        <FormContainer />
+      </div>
       <Banner4/>
       <WhatCanHelp/>
       <HelpCard/>

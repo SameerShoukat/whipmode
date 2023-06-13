@@ -5,6 +5,7 @@ import {
   MarkerF,
   CircleF,
 } from '@react-google-maps/api';
+import { googleKey } from '../../api/index';
 
 import { message } from 'antd';
 import axios from 'axios';
@@ -23,7 +24,8 @@ const options = {
   zIndex: 1,
 };
 
-export const StyleMap = ({ setLocation }) => {
+export const StyleMap = (cordinate) => {
+  const [location, setLocation] = useState({})
   const [currentPosition, setCurrentPosition] = useState({});
   const [listOfSupervisors, setListOfSupervisors] = useState([]);
 
@@ -36,68 +38,28 @@ export const StyleMap = ({ setLocation }) => {
     setLocation(currentPosition);
   };
 
-  const onDragEndMap = (e) => {
-    const lat = e.latLng.lat();
-    const lng = e.latLng.lng();
-    const currentPosition = {
-      lat,
-      lng,
-    };
-    setCurrentPosition(currentPosition);
-    setLocation(currentPosition);
-  };
 
   const mapStyles = {
-    height: '400px',
+    height: '100%',
     width: '100%',
   };
 
-  const defaultCenter = {
-    lat: 24.860966,
-    lng: 66.990501,
-  };
 
-  const getSupervisorsLocation = async () => {
-    const config = {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('uswms-login')}`,
-      },
-    };
-
-    await axios
-      .get(`${api}/admins/get-supervisors-locations`, {}, config)
-      .then((res) => {
-        setListOfSupervisors(res.data)
-       
-      })
-      .catch((res) => {
-        res && message.error(res.response.data.message);
-      });
-  };
 
   useEffect(() => {
-    getSupervisorsLocation();
     navigator.geolocation.getCurrentPosition(success);
   }, []);
 
   return (
-    <LoadScript googleMapsApiKey='AIzaSyC9hcW0CMIVc7UwYp9fTKgM8AvUxQnn-TQ'>
+    <LoadScript 
+    googleMapsApiKey={googleKey}
+    libraries={["places"]}
+    >
       <GoogleMap
-        // onClick={(e) => onClickMap(e)}
         mapContainerStyle={mapStyles}
         zoom={13}
-        center={currentPosition?.lat ? currentPosition : defaultCenter}
+        center={currentPosition?.lat ? currentPosition : cordinate}
       >
-        <MarkerF
-          onDragEnd={(e) => onDragEndMap(e)}
-          position={currentPosition}
-          draggable={true}
-        />
-        <CircleF
-          center={currentPosition?.lat ? currentPosition : defaultCenter}
-          options={options}
-        />
-
         {
           listOfSupervisors.length > 0 && (<>
             {listOfSupervisors.map(({location}) => {

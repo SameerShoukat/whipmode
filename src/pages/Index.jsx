@@ -9,7 +9,9 @@ import MobileAppSec from "../sections/MobileAppSec";
 const Home = () => {
   return (
     <>
-      <FormContainer />
+      <div className="container searchpage-form">
+        <FormContainer />
+      </div>
       <Banner/>
       <LatestInventory/>
       <HowItsWork/>

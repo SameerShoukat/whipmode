@@ -9,19 +9,21 @@ import HowitsWorkpage from "./pages/HowitsWorkpage";
 import Pricing from "./pages/Pricing";
 import WebWrapper from "./sections/wrapper";
 import SignInPage from "./pages/sign";
-// admin routes
-// userAuth
+import SignUpPage from "./pages/signup";
+import SearchVehicel from "./pages/search";
+
 import { ProtectedRoute, AdminProtectedRoute, SupervisorProtectedRoute } from './hooks/useAuth';
 
 export default function AppRoutes() {
     return (
         <Routes>
     
-            {/* /* <Route path="/new_purchaser" element={<AddPurchaser />} /> */}
+            <Route path="/signup" element={<SignUpPage />} /> 
+            <Route path="/signin" element={<SignInPage />} /> 
             <Route element={
                     <WebWrapper />
             }>
-                <Route path="/signin" element={<SignInPage />} /> 
+          
                 <Route path="/" element={
                      <Home />
                 }>
@@ -38,7 +40,10 @@ export default function AppRoutes() {
                         <Pricing />
                 }>
                 </Route>
-                
+                <Route path="/searchVehicel" element={
+                        <SearchVehicel />
+                        }>
+                </Route>
                 
             </Route>
 

@@ -3,6 +3,7 @@ import { Form, Button } from 'antd';
 import { LockOutlined, UserOutlined , MailOutlined} from '@ant-design/icons';
 import { message } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //component
 import InputIcon from '../forms/inputIcon';
 import InputPassword from '../forms/inputPassword';
@@ -47,7 +48,7 @@ const Signin = () => {
                 <InputPassword name='password' icon={<LockOutlined />} message='Enter your password' type="string" />
                 <div className='d-flex remember-me align-items-center justify-content-between'>
                     <label htmlFor="remember" className='text-white mx-2'>
-                    <InputCheckBox name="remember" className="text-white" />
+                    <InputCheckBox name="remember" message="Remember me" className="text-white" />
                     </label>
                   <Button type="link" className='mt-0' onClick={()=>{setFormToggle(false)}}> 
                       Forgot Password
@@ -80,7 +81,7 @@ const Signin = () => {
               </Form>
             </>
         }
-
+        <h5 className='tagline text-center'>New To Wipmode <Link to="/signup">Join Here</Link></h5>
       </div>
   );
 };

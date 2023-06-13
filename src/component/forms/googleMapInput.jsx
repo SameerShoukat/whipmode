@@ -48,19 +48,28 @@ import {
   LoadScript
 } from '@react-google-maps/api';
 const lib = ['places'];
-function AutoComplete({setLocation}) {
+
+
+function AutoComplete({setLocation, value}) {
   const [searchBox, setSearchBox] = useState(null);
+  const [enbSelect, setEnbSelect] = useState(true);
   const onSBLoad = ref => {
     setSearchBox(ref);
   };
     const onPlacesChanged = (value) => { 
         if(searchBox && searchBox.getPlaces()){
-            const [place]  = searchBox.getPlaces()    
+            const [place]  = searchBox.getPlaces()  
             setLocation({address : place.formatted_address, latitude : place.geometry.location.lat(), longitude : place.geometry.location.lng()})   
         }
     }
   useEffect(()=>{
   },[searchBox])
+
+
+  const hideAddress = () =>{
+    setEnbSelect(false)
+  }
+
 
   return (
     <LoadScript
@@ -69,16 +78,16 @@ function AutoComplete({setLocation}) {
     >
 
         {/* Child components, such as markers, info windows, etc. */}
-        <>
-          <StandaloneSearchBox
-            onPlacesChanged={onPlacesChanged}
-            onLoad={onSBLoad}
-          >
-            <input type="text" placeholder='Enter a loation' className='location-input' 
-             onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-            />
-          </StandaloneSearchBox>
-        </>
+        <div className='position-relative w-100'>
+          {enbSelect && <span className='selected-addres-span' onClick={hideAddress}>{value}</span> }
+          
+            <StandaloneSearchBox
+              onPlacesChanged={onPlacesChanged}
+              onLoad={onSBLoad}
+            >
+              <input type="text" placeholder='Enter a loation' className='location-input'  />
+            </StandaloneSearchBox>
+        </div>
     </LoadScript>
   );
 }

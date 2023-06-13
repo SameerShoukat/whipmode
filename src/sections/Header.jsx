@@ -31,10 +31,10 @@ const Header = () => {
                     <Link to="/helping" className="nav-link">Helping</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/Sign" className="nav-link">Sign In</Link>
+                    <Link to="/signin" className="nav-link">Sign In</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/Join" className="nav-link">Join</Link>
+                    <Link to="/signup" className="nav-link">Join</Link>
                 </li>
               </ul>
             </div>

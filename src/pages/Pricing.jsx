@@ -8,7 +8,9 @@ import Footer from "../sections/Footer";
 const Pricing = () => {
   return (
     <>
-      <FormContainer />
+      <div className="container">
+        <FormContainer />
+      </div>
       <Banner3/>
       <Rental/>
       <Bussiness/>

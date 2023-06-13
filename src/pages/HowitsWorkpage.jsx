@@ -10,7 +10,9 @@ import Footer from "../sections/Footer";
 const HowitsWorkpage = () => {
   return (
     <>
-      <FormContainer />
+     <div className="container">
+        <FormContainer />
+      </div>
       <Banner2/>
       <MemberSection/>
       <Comfortable/>

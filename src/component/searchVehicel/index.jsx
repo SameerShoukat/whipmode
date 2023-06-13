@@ -7,24 +7,55 @@ import { times } from "../../utils/time";
 import AutoComplete from "../forms/googleMapInput";
 import './style.css';
 import { message } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import UseIsMounted from "../../hooks/mousted";
 
-const FormContainer = () => {
+const SearchVehicelForm = ({setCordinate, setReload}) => {
   const [locaion, setLocation]  = useState()
+  const [searchedLocation, setSearchedLocation] = useState(JSON.parse(localStorage.getItem('search-locaion')))
   const [startTime, setStartTime]  = useState()
   const [startDate, setStartDate]  = useState()
+  const isMounted = UseIsMounted();
   const [form] = useForm();
-  const Navigate = useNavigate();
+
+
+
+  useEffect(()=>{
+    if (isMounted.current) {
+      if (searchedLocation) {
+          form.setFieldsValue({
+              start_date : searchedLocation && searchedLocation.start_date,
+              start_time : searchedLocation && searchedLocation.start_time,
+              end_date : searchedLocation && searchedLocation.end_date,
+              end_time : searchedLocation && searchedLocation.end_time,
+          })
+      }
+  }
+  },[])
+
+
 
   const onFormSubmit = (values) =>{
     if(!locaion){
-      message.error('Select Valid Location');
+      message.error('Location is required');
       return true;
     }
     values ={...values, selectLocation : locaion}
     localStorage.setItem('search-locaion', JSON.stringify(values));
-    Navigate('/searchVehicel')
+    setCordinate({ 
+      lat: locaion.latitude,
+      lng: locaion.longitude
+    })
+    setReload(true)
+    setTimeout(() => {
+      setReload(false)
+    }, 2000);
   }
+
+
+
+
+
 
   return (
     <>
@@ -35,12 +66,13 @@ const FormContainer = () => {
           initialValues={{}}
           onFinish={onFormSubmit}
         >
-          <div className="d-flex align-items-center w-100 header-form">
+          <div className="d-flex align-items-center w-100">
             <div className="search-container separator location-search">
               <img src={require("../../assets/images/search.png")} alt="search" />
-              <AutoComplete name="place" message="Select place" setLocation={setLocation} />
+              <AutoComplete name="place" message="Select place" setLocation={setLocation} value={searchedLocation && searchedLocation.selectLocation && searchedLocation.selectLocation.address} />
             </div>
-            <div className="date-container separator">
+            <div className="date-container separator position-relative">
+              <label className="support-label mx-2">Pick Up</label>
               <div className="dateInput ">
                 <img src={require('../../assets/images/calendar.png')} alt="calender"  />
                 <CustomDatePicker name="start_date" message="Start Date" suffixIcon={null} setStartDate={startDate}   />
@@ -50,7 +82,8 @@ const FormContainer = () => {
                 <CustomSelectBox name="start_time" options={times} message="Start Time" suffixIcon={null} setStartTime={startTime} />
               </div>
             </div>
-            <div className="date-container separator">
+            <div className="date-container separator position-relative">
+            <label className="support-label mx-2">Return</label>
               <div className="dateInput ">
                 <img src={require('../../assets/images/calendar.png')} alt="calender"  />
                   <CustomDatePicker name="end_date" message="End Date" suffixIcon={null} startDate={startDate}  />
@@ -69,4 +102,4 @@ const FormContainer = () => {
   );
 };
 
-export default FormContainer;
+export default SearchVehicelForm;
