@@ -1,5 +1,6 @@
 {
-  "name": "uswms_web",
+  "name": "wip-mode",
+  "homepage": "https://wip-mode.web.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

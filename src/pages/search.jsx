@@ -5,6 +5,7 @@ import { useState } from "react";
 import VehicleCard from "../component/vehicel-card";
 import StyleMap from "../component/map";
 import {Skeleton} from "antd";
+import VehicalCarDetail from "../component/vehicel-car-detail";
 
 
 
@@ -12,6 +13,7 @@ const SearchVehicel = () => {
   const [carlist, setCarlist] =  useState()
   const[ cordinate, setCordinate ] = useState({})
   const [reload, setReload] =  useState(false)
+  const [cardDetail ,  setCardDetail] =  useState(false)
 
   useEffect(()=>{
    let searchlocation = JSON.parse(localStorage.getItem('search-locaion'))
@@ -46,26 +48,30 @@ const SearchVehicel = () => {
                 </div>
               :
                 <div className="vehicel-exist">
+                  {!cardDetail ? 
                   <ul className="list-inline">
                     <li className="mb-4">
-                      <VehicleCard />
+                      <VehicleCard setCardDetail={setCardDetail} />
                     </li>
                     <li className="mb-4">
-                      <VehicleCard />
+                      <VehicleCard setCardDetail={setCardDetail} />
                     </li>
                     <li className="mb-4">
-                      <VehicleCard />
+                      <VehicleCard setCardDetail={setCardDetail} />
                     </li>
                     <li className="mb-4">
-                      <VehicleCard />
+                      <VehicleCard setCardDetail={setCardDetail} />
                     </li>
                     <li className="mb-4">
-                      <VehicleCard />
+                      <VehicleCard setCardDetail={setCardDetail} />
                     </li>
                     <li className="mb-4">
-                      <VehicleCard  />
+                      <VehicleCard setCardDetail={setCardDetail}  />
                     </li>
                   </ul>
+                  :
+                  <VehicalCarDetail setCardDetail={setCardDetail} />
+                  }
                 </div>
               }
               </>
