@@ -22,7 +22,7 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link to="/howItWork" className="nav-link ">HowitsWorkpage</Link>
+                    <Link to="/howItWork" className="nav-link ">How It Works</Link>
                 </li>
                 <li className="nav-item">
                     <Link to="/pricing" className="nav-link">Pricing</Link>

@@ -43,7 +43,7 @@ const Footer = () => {
                 </Link>
                 <ul>
                   <li>
-                    <Link to="/HowitsWorkpage" className="foot-links-text">
+                    <Link to="/howItWork" className="foot-links-text">
                       How It Works
                     </Link>
                   </li>
@@ -55,12 +55,12 @@ const Footer = () => {
                   </li>
                   <li>
                     <a href="javascript:;" >
-                      <Link to="/Sign" className="foot-links-text">Sign In</Link>
+                      <Link to="/Signin" className="foot-links-text">Sign In</Link>
                     </a>
                   </li>
                   <li>
                     <a href="javascript:;" >
-                      <Link to="/Join" className="foot-links-text">Join</Link>
+                      <Link to="/signup" className="foot-links-text">Join</Link>
                     </a>
                   </li>
                 </ul>

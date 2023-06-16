@@ -11,7 +11,7 @@ export default function InputConfirmPassword({ name, icon, message }) {
           {
             required: true,
             message: message,
-            min:6
+            min:4
           },
           ({ getFieldValue }) => ({
             validator(_, value) {

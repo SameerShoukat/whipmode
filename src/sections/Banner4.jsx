@@ -4,7 +4,7 @@ const Banner4 = () => {
     return (
         <>
             <section className="banner-section">
-                <img src={banner4} className="animate__animated animate__backInRight" alt="image"/>
+                <img src={banner4} className="animate__animated animate__backInRight"data-aos="fade-down-left"duration="200" alt="image"/>
                     <div className="container">
                         <div className="row">
                             <div className="col-md-5 col-sm-12 col-12 d-lg-flex justify-content-lg-center align-items-lg-center">
