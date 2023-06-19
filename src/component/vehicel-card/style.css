@@ -5,12 +5,12 @@
     border-radius: 10px;
 
 }
-.style-car-card>img{
+.style-car-card>div>img{
     width: 220px;
     object-fit: contain;
 }
 
-.style-car-card>h3{
+.style-car-card>div>h3{
     font-size: 16px;
     font-weight: 400;
     margin: 0 10px;

@@ -66,7 +66,7 @@ const SearchVehicelForm = ({setCordinate, setReload}) => {
           initialValues={{}}
           onFinish={onFormSubmit}
         >
-          <div className="d-flex align-items-center w-100">
+          <div className="d-flex flex-md-row flex-column align-items-center w-100">
             <div className="search-container separator location-search">
               <img src={require("../../assets/images/search.png")} alt="search" />
               <AutoComplete name="place" message="Select place" setLocation={setLocation} value={searchedLocation && searchedLocation.selectLocation && searchedLocation.selectLocation.address} />

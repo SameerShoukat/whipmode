@@ -108,7 +108,22 @@
     .search-form{
         margin-bottom: 0;
     }
-    
+    .search-container{
+        width: 100%;
+        margin-bottom: 18px;
+    }
+    .date-container{
+        width: 100%;
+    }
+    .support-label {
+        font-size: 11px !important;
+        top: -8px;
+        font-size: 14px;
+        color: white;
+    }
+    .date-container{
+        margin-bottom: 10px;
+    }
     
   }
   

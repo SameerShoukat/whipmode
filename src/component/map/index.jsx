@@ -71,36 +71,38 @@ export const StyleMap = (cordinate) => {
   }, []);
 
   return (
-    <LoadScript 
-    googleMapsApiKey={googleKey}
-    libraries={["places"]}
-    >
-      <GoogleMap
-        mapContainerStyle={mapStyles}
-        zoom={13}
-        center={currentPosition?.lat ? currentPosition : cordinate}
-      >
-        <MarkerF
-          onDragEnd={(e) => onDragEndMap(e)}
-          position={currentPosition}
-          draggable={true}
-        />
-        <CircleF
-          center={currentPosition?.lat ? currentPosition : cordinate}
-          options={options}
-        />
+          <LoadScript 
+        googleMapsApiKey={googleKey}
+        libraries={["places"]}
+        >
+          <GoogleMap
+            mapContainerStyle={mapStyles}
+            zoom={13}
+            center={currentPosition?.lat ? currentPosition : cordinate}
+            mapContainerClassName='vehicle-map'
+          >
+            <MarkerF
+              onDragEnd={(e) => onDragEndMap(e)}
+              position={currentPosition}
+              draggable={true}
+            />
+            <CircleF
+              center={currentPosition?.lat ? currentPosition : cordinate}
+              options={options}
+            />
 
-        {
-          carlist && carlist.length > 0 && carlist.map((location) => (
-              <>
-                  <CircleF
-                    center={{lat: location.latitude , lng: location.longitude}}
-                    options={options}
-                  />
-              </>
-              ))}
-      </GoogleMap>
-    </LoadScript>
+            {
+              carlist && carlist.length > 0 && carlist.map((location) => (
+                  <>
+                      <CircleF
+                        center={{lat: location.latitude , lng: location.longitude}}
+                        options={options}
+                      />
+                  </>
+                  ))}
+          </GoogleMap>
+        </LoadScript>
+  
   );
 };
 

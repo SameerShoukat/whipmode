@@ -1,38 +1,46 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { MenuOutlined } from '@ant-design/icons';
 
 const Header = () => {
-  // function myFunction() {
-  //   var x = document.getElementById("myTopnav");
-  //   if (x.className === "topnav") {
-  //     x.className += " responsive";
-  //   } else {
-  //     x.className = "topnav";
-  //   }
-  // }
+  const [showNav, setShowNav] = useState(false)
+  const [width, setWidth] = useState(window.innerWidth);
+  cons [ navSicvky]
+
+  const toggleNav = () =>{
+    if(showNav === true){
+      setShowNav(false)
+    }
+    else{
+      setShowNav(true);
+    }
+  }
+  useEffect(() => {
+    function handleResize() {
+      setWidth(window.innerWidth);
+    }
+    window.addEventListener("scroll", ()=>{
+      setShowNav(false)
+    })
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [width]);
+
+
+
   return (
     <>
       <header>
         <div className="container">
-          <nav className="navbar navbar-expand-lg Topnav "
+          <nav className="navbar navbar-expand-lg Topnav justify-content-between"
             id="myTopnav"
           >
             <Link to="/" className="navbar-brand logo">WHIPMODE</Link>
-            {/* <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            onClick={functionNav}
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button> */}
+            {/* menu design */}
+            <MenuOutlined className="mobile-nav-toggle" onClick={toggleNav} />
             
-            <div className="Topnav top-menu mobile-menu-link mobile-nav" id="myTopnav">
+          <div className={width < 992 ? `Topnav top-menu mobile-menu-link mobile-nav ${showNav ? 'active' : ''}` : `Topnav top-menu mobile-menu-link`} id="myTopnav">
               <ul className="navbar-nav ">
                 <li className="nav-item">
                   <Link to="/howItWork" className="nav-link ">How It Works</Link>
