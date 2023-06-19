@@ -1,5 +1,6 @@
 import React from 'react'
 import banner4 from '../assets/images/banner4.png'
+import { Link } from 'react-router-dom'
 const Banner4 = () => {
     return (
         <>
@@ -12,8 +13,8 @@ const Banner4 = () => {
                                     <h1 className="main-heading">Help</h1>
                                     <p className="main-para-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                                     <div className="banner-btns-sec">
-                                        <button className="redbtn">Get Started</button>
-                                        <button className="bdr-btn-black">Learn More</button>
+                                        <Link to="/searchVehicel" className="redbtn">Get Started</Link>
+                                        <Link to="/howItWork" className="bdr-btn-black">Learn More</Link >
                                     </div>
                                 </div>
                             </div>
