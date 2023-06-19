@@ -1,21 +1,23 @@
-import { useState } from 'react';
-import { Form, Button } from 'antd';
+
+import { Form } from 'antd';
 import { LockOutlined, UserOutlined , MailOutlined, PhoneFilled} from '@ant-design/icons';
 //component
 import InputIcon from '../forms/inputIcon';
 import InputPassword from '../forms/inputPassword';
 import CustomInputNumber from '../forms/inputNumber';
-import CustomInputPassword from '../forms/inputPassword';
+import InputConfirmPassword from '../forms/inputConfirmPassword';
 import InputCheckBox from '../forms/inputCheckbox';
 import FormButton from '../forms/button';
 import { occupation } from '../../utils/occupation';
 import CustomSelectBox from '../forms/selectBox';
 import {Row , Col } from 'antd';
+import { useForm } from 'antd/lib/form/Form';
 
 
 
 
 const SignUp = () => {
+  const [form] = useForm();
   const onSignupFinish = (values)=>{
     console.log(values)
   }
@@ -24,6 +26,7 @@ const SignUp = () => {
       <div className='signin-form-cont'>
 
               <Form
+                form={form}
                 name="login"
                 className='signin-form'
                 initialValues={{
@@ -36,7 +39,7 @@ const SignUp = () => {
                     <InputIcon name='first_name' icon={<UserOutlined />} message='Enter First Name' type="string" />
                   </Col>
                   <Col md={12} span={24} className='signup-input'>
-                    <InputIcon name='last_name' icon={<UserOutlined />} message='Enter First Name' type="string" />
+                    <InputIcon name='last_name' icon={<UserOutlined />} message='Enter last Name' type="string" />
                   </Col>
                   <Col span={24} className='signup-input'>
                     <InputIcon name='email' icon={<MailOutlined />} message='Enter Email' type="email" />
@@ -48,7 +51,7 @@ const SignUp = () => {
                     <InputPassword name='password' icon={<LockOutlined />} message='Enter Password' />
                   </Col>
                   <Col span={24} className='signup-input'>
-                    <CustomInputPassword name='confirm_password' icon={<LockOutlined />} message='Confirm Your Password' />
+                    <InputConfirmPassword name='confirm_password' icon={<LockOutlined />} message='Confirm Your Password' />
                   </Col>
                   <Col span={24} className='signup-input'>
                     <CustomSelectBox name="occupation" message="Please select occupation" options={occupation}  />

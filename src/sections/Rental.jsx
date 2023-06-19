@@ -15,7 +15,7 @@ const Rental = () => {
                                     <span className="red-color"><small>PER MONTH</small></span>
                                 </div>
                                 <div className="retal-card-body">
-                                    <p className="sub-para-black">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    <p className="sub-para-black ">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                 </div>
                                 <div className="rental-btn">
                                     <button className="redbtn">Select Plan</button>

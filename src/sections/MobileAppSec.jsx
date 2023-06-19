@@ -25,7 +25,7 @@ const MobileAppSec = () => {
                         </div>
                         <div className="col-md-6 col-12 mt-lg-0 mt-4">
                             <div className="mobileApp-img">
-                                <img src={mobile} alt="images" />
+                                <img src={mobile} alt="images" data-aos="zoom-in-up"duration="500"/>
                             </div>
                         </div>
                     </div>

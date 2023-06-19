@@ -2,8 +2,10 @@ import React from 'react'
 import sedan from '../assets/images/sedan.png'
 import suv from '../assets/images/suv.png'
 import sedan2 from '../assets/images/sedan2.png'
+import Aos from 'aos'
 
 const LatestInventory = () => {
+    Aos.init();
     return (
         <>
             <section className="latestInvent-sec">
@@ -13,52 +15,52 @@ const LatestInventory = () => {
                         <div className="col-md-4 col-12">
                             <div className="latest-Inv-card">
                                 <div className="card-title">
-                                    <h5 className="sub-heading">SEDAN</h5>
+                                    <h5 className="sub-heading" data-aos="fade-up"duration="300">SEDAN</h5>
                                 </div>
-                                <div className="card-img animate__animated animate__zoomIn">
+                                <div className="card-img animate__animated animate__zoomIn" data-aos="fade-up"duration="300">
                                     <img src={sedan} alt="" />
                                 </div>
                                 <div className="card-text">
                                     <p className="main-para-white">LOREM IPSUM IS SIMPLY</p>
                                     <p className="sub-para-white"><span>2018</span> <span>255 HP</span> <span>MANUAL</span></p>
                                 </div>
-                                <div className="card-btn">
+                                {/* <div className="card-btn">
                                     <button className="redbtn">Book Now</button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="col-md-4 col-12">
                             <div className="latest-Inv-card">
                                 <div className="card-title">
-                                    <h5 className="sub-heading">SUV</h5>
+                                    <h5 className="sub-heading"data-aos="fade-up"duration="300">SUV</h5>
                                 </div>
-                                <div className="card-img animate__animated animate__zoomIn">
+                                <div className="card-img animate__animated animate__zoomIn"data-aos="fade-up"duration="300">
                                     <img src={suv} alt="" />
                                 </div>
                                 <div className="card-text">
                                     <p className="main-para-white">LOREM IPSUM IS SIMPLY</p>
                                     <p className="sub-para-white"><span>2018</span> <span>255 HP</span> <span>MANUAL</span></p>
                                 </div>
-                                <div className="card-btn">
+                                {/* <div className="card-btn">
                                     <button className="redbtn">Book Now</button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="col-md-4 col-12">
                             <div className="latest-Inv-card">
                                 <div className="card-title">
-                                    <h5 className="sub-heading">SEDAN</h5>
+                                    <h5 className="sub-heading"data-aos="fade-up"duration="300">SEDAN</h5>
                                 </div>
-                                <div className="card-img animate__animated animate__zoomIn">
+                                <div className="card-img animate__animated animate__zoomIn"data-aos="fade-up"duration="300">
                                     <img src={sedan2} alt="" />
                                 </div>
                                 <div className="card-text">
                                     <p className="main-para-white">LOREM IPSUM IS SIMPLY</p>
                                     <p className="sub-para-white"><span>2018</span> <span>255 HP</span> <span>MANUAL</span></p>
                                 </div>
-                                <div className="card-btn">
+                                {/* <div className="card-btn">
                                     <button className="redbtn">Book Now</button>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
