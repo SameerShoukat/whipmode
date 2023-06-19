@@ -1,22 +1,18 @@
 import React from "react";
-import Form from "../components/Form";
-import Banner3 from "../components/Banner3";
-import Rental from "../components/Rental";
-import WhipmodeSlide from "../components/WhipmodeSlide";
-import Bussiness from "../components/Bussiness";
-import MobileAppSec from "../components/MobileAppSec";
-import Footer from "../components/Footer";
-import SliderSec from "../components/SliderSec";
+import FormContainer from "../component/searchForm";
+import Banner3 from "../sections/Banner3";
+import Rental from "../sections/Rental";
+import Bussiness from "../sections/Bussiness";
+import MobileAppSec from "../sections/MobileAppSec";
+import Footer from "../sections/Footer";
 const Pricing = () => {
   return (
     <>
-      <Form />
+      <FormContainer />
       <Banner3/>
       <Rental/>
-      <SliderSec/>
       <Bussiness/>
       <MobileAppSec/>
-      <Footer/>
     </>
   );
 };

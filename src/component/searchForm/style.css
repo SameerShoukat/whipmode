@@ -1,0 +1,77 @@
+
+.search-form {
+    width: 100%;
+    background-color: #EB4E4A;
+    height: 111px;
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    position: relative;
+    margin-top: 90px;
+    margin-bottom: 150px;
+    padding: 0 40px;
+}
+.search-container{
+    width: 25%;
+}
+.date-container{
+    width: 35%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    position: relative;
+}
+.separator::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 80%;
+    top: 10%;
+    background-color: #ffffff40;
+    right: 0;
+}
+.date-container .ant-select-selector, .date-container .ant-picker, .date-container .ant-select-selection-item, .date-container .ant-select-selector, .date-container .ant-select-selection-placeholder{
+    border: none !important;
+    background-color:  transparent !important;
+    width: 150px;
+}
+
+.date-container input{
+    color: #fff !important; 
+    font-size: 16px;
+}
+.date-container svg{
+    color: #fff;
+}
+.date-container .ant-picker-clear{
+    display: none !important;
+}
+.date-container .custom-input, .date-container .ant-form-item{
+    margin-bottom: 0 !important;
+}
+.date-container .ant-select-selector span{
+    color: #fff !important;
+    font-size: 16px;
+}
+.dateInput{
+    display: flex;
+    align-items: center;
+}
+
+.dateInput img{
+    width: 20px;
+   height: 20px;
+}
+.date-container.small{
+    width: 13%;
+}
+
+.date-container button{
+    background: #fff;
+    color: #eb4e4a;
+    width: 150px !important;
+    height: 40px;
+    border-radius: 13px;
+}

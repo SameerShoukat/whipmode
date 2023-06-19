@@ -1,22 +1,22 @@
 import React from "react";
-import Form from "../components/Form";
-import Banner4 from "../components/Banner4";
-import WhatCanHelp from "../components/WhatCanHelp";
-import HelpCard from "../components/HelpCrad";
-import Promoted from "../components/promoted";
-import MobileAppSec from "../components/MobileAppSec";
-import Footer from "../components/Footer";
+import FormContainer from "../component/searchForm";
+import Banner4 from "../sections/Banner4";
+import WhatCanHelp from "../sections/WhatCanHelp";
+import HelpCard from "../sections/HelpCrad";
+import Promoted from "../sections/promoted";
+import MobileAppSec from "../sections/MobileAppSec";
+
+import Footer from "../sections/Footer";
 
 const Helping = () => {
   return (
     <>
-      <Form />
+      <FormContainer />
       <Banner4/>
       <WhatCanHelp/>
       <HelpCard/>
       <Promoted/>
       <MobileAppSec/>
-      <Footer/>
     </>
   );
 };
