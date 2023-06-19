@@ -6,7 +6,6 @@ import { MenuOutlined } from '@ant-design/icons';
 const Header = () => {
   const [showNav, setShowNav] = useState(false)
   const [width, setWidth] = useState(window.innerWidth);
-  cons [ navSicvky]
 
   const toggleNav = () =>{
     if(showNav === true){
@@ -31,7 +30,7 @@ const Header = () => {
 
   return (
     <>
-      <header>
+      <header className="mobile-sticky">
         <div className="container">
           <nav className="navbar navbar-expand-lg Topnav justify-content-between"
             id="myTopnav"
