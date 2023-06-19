@@ -20,14 +20,25 @@ const options = {
   draggable: false,
   editable: false,
   visible: true,
-  radius: 1000,
+  radius: 50,
   zIndex: 1,
 };
 
+const carlist =[
+  {
+    latitude: 40.0632576,
+    longitude : -86.1500564
+  },
+  {
+    latitude: 30.0492308,
+    longitude : -95.8595124
+  }
+]
+
 export const StyleMap = (cordinate) => {
+
   const [location, setLocation] = useState({})
   const [currentPosition, setCurrentPosition] = useState({});
-  const [listOfSupervisors, setListOfSupervisors] = useState([]);
 
   const success = (position) => {
     const currentPosition = {
@@ -38,13 +49,22 @@ export const StyleMap = (cordinate) => {
     setLocation(currentPosition);
   };
 
+  const onDragEndMap = (e) => {
+    const lat = e.latLng.lat();
+    const lng = e.latLng.lng();
+    const currentPosition = {
+      lat,
+      lng,
+    };
+    setCurrentPosition(currentPosition);
+    setLocation(currentPosition);
+  };
 
+  
   const mapStyles = {
     height: '100%',
     width: '100%',
   };
-
-
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
@@ -60,18 +80,25 @@ export const StyleMap = (cordinate) => {
         zoom={13}
         center={currentPosition?.lat ? currentPosition : cordinate}
       >
-        {
-          listOfSupervisors.length > 0 && (<>
-            {listOfSupervisors.map(({location}) => {
-              return (<>
-                  <CircleF
-          center={{lat:location.coordinates[1] , lng:location.coordinates[0]}}
+        <MarkerF
+          onDragEnd={(e) => onDragEndMap(e)}
+          position={currentPosition}
+          draggable={true}
+        />
+        <CircleF
+          center={currentPosition?.lat ? currentPosition : cordinate}
           options={options}
         />
-              </>)
-            })}
-          </>)
-        }
+
+        {
+          carlist && carlist.length > 0 && carlist.map((location) => (
+              <>
+                  <CircleF
+                    center={{lat: location.latitude , lng: location.longitude}}
+                    options={options}
+                  />
+              </>
+              ))}
       </GoogleMap>
     </LoadScript>
   );
