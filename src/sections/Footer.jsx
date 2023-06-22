@@ -43,24 +43,24 @@ const Footer = () => {
                 </Link>
                 <ul>
                   <li>
-                    <Link to="/howItWork" className="foot-links-text">
-                      How It Works
+                    <Link to="/privacy" className="foot-links-text">
+                      Privacy
                     </Link>
                   </li>
                   <li>
-                      <Link to="/Pricing" className="foot-links-text">Pricing</Link>
+                      <Link to="/terms" className="foot-links-text">Terms and conditions</Link>
                   </li>
                   <li>
-                     <Link to="/Helping" className="foot-links-text">Help</Link>
+                     <Link to="/policy" className="foot-links-text">Retun policy</Link>
                   </li>
                   <li>
                     <a href="javascript:;" >
-                      <Link to="/Signin" className="foot-links-text">Sign In</Link>
+                      <Link to="/disclaimer" className="foot-links-text">Disclaimer</Link>
                     </a>
                   </li>
                   <li>
                     <a href="javascript:;" >
-                      <Link to="/signup" className="foot-links-text">Join</Link>
+                      <Link to="/eula" className="foot-links-text">Eula</Link>
                     </a>
                   </li>
                 </ul>
@@ -120,6 +120,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
+          
         </div>
       </footer>
     </>

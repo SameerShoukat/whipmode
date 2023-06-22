@@ -1105,6 +1105,37 @@ footer {
 .location-input::placeholder {
   color: #ffffff;
 }
+/* privacy sec  */
+.content-sec{
+  padding: 80px 0px;
+}
+.content-list{
+  padding-left: 1rem;
+}
+.content-para{
+  font-size: 17px;
+}
+.content-head{
+  font-size: 40px;
+}
+.clr-red{
+  color: #eb4e4a;
+}
+.clr-grey{
+  color: #585858;
+}
+.f-30{
+  font-size: 30px;
+}
+.f-20{
+  font-size: 20px;
+}
+.border-form {
+  max-width: 160px;
+  width: 100%;
+  border-bottom: 1px solid #000;
+  display: inline-block;
+}
 /* footer section end */
 
 /* ***********************************
@@ -1180,10 +1211,15 @@ footer {
   }
   .pring-card {
     padding: 20px 10px;
-  }
+    min-height: 200px;
+    height: 100%;
+}
   .pricing-sec::before {
     max-width: 170px;
   }
+  /* .date-container button {
+    width: 125px;
+} */
   .mobileApp-sec {
     padding: 80px 0 0 0;
   }
@@ -1683,17 +1719,5 @@ footer {
 
 
 
-/* .hamburger-menu {
-  width: 100%;
-  background-color: #EB4E4A;
-  min-height: 150px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  border-radius: 25px;
-  position: relative;
-  margin-top: 90px;
-  margin-bottom: 150px;
-  padding: 0 40px;
-} */
+
 
