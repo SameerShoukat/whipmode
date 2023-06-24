@@ -12,6 +12,7 @@ import VehicalCarDetail from "../component/vehicel-car-detail";
 const SearchVehicel = () => {
   const [carlist, setCarlist] =  useState()
   const[ cordinate, setCordinate ] = useState({})
+  const [existCarList, setExistCarList] = useState()
   const [reload, setReload] =  useState(false)
   const [cardDetail ,  setCardDetail] =  useState(false)
 
@@ -26,12 +27,13 @@ const SearchVehicel = () => {
   },[])
 
 
+
  
   
   return (
     <>
     <div className="search-page">
-        <SearchVehicelForm setCordinate={setCordinate} setReload={setReload} />
+        <SearchVehicelForm setCordinate={setCordinate} setReload={setReload} setExistCarList={setExistCarList} />
         <Row>
             <Col md={10} span={24}>
               <div className="vehicel-container">
@@ -40,46 +42,30 @@ const SearchVehicel = () => {
               reload  ? <Skeleton active /> 
               :
              <>
-              {carlist ? 
-                <div className="vehicel-not-exist text-center">
-                    <img src={require("../assets/images/car.png")} alt="car-image" />
-                    <h4 className="subheading">Wipmode aren't in this area yet</h4>
-                    <p>We don't have any cars in this area. Try searching for a different location or check out the closest locations below.</p>
-                </div>
-              :
+              {existCarList && existCarList.length > 0 ? existCarList.map((cars, val)=>(
                 <div className="vehicel-exist">
-                  {!cardDetail ? 
-                  <ul className="list-inline">
-                    <li className="mb-4">
-                      <VehicleCard setCardDetail={setCardDetail} />
-                    </li>
-                    <li className="mb-4">
-                      <VehicleCard setCardDetail={setCardDetail} />
-                    </li>
-                    <li className="mb-4">
-                      <VehicleCard setCardDetail={setCardDetail} />
-                    </li>
-                    <li className="mb-4">
-                      <VehicleCard setCardDetail={setCardDetail} />
-                    </li>
-                    <li className="mb-4">
-                      <VehicleCard setCardDetail={setCardDetail} />
-                    </li>
-                    <li className="mb-4">
-                      <VehicleCard setCardDetail={setCardDetail}  />
-                    </li>
-                  </ul>
-                  :
-                  <VehicalCarDetail setCardDetail={setCardDetail} />
-                  }
-                </div>
+                    {
+                    !cardDetail ? 
+                      <VehicleCard setCardDetail={setCardDetail} cars={cars} />
+                    :
+                    <VehicalCarDetail setCardDetail={setCardDetail} cars={cars} />
+                    }
+              </div>
+              )) 
+              :
+              <div className="vehicel-not-exist text-center">
+                <img src={require("../assets/images/car.png")} alt="car-image" />
+                <h4 className="subheading">Wipmode aren't in this area yet</h4>
+                <p>We don't have any cars in this area. Try searching for a different location or check out the closest locations below.</p>
+            </div>
+            
               }
               </>
 }
               </div>
             </Col>
             <Col md={14} span={24}>
-              <StyleMap {...cordinate}  />
+              <StyleMap cordinate={cordinate} existCarList={existCarList}  />
             </Col>
         </Row>
     </div>

@@ -23,7 +23,7 @@ const FormContainer = () => {
     }
     values ={...values, selectLocation : locaion}
     localStorage.setItem('search-locaion', JSON.stringify(values));
-    Navigate('/searchVehicel')
+    Navigate('/searchVehicle')
   }
 
   return (

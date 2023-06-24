@@ -2,10 +2,31 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MenuOutlined } from '@ant-design/icons';
+import { Menu, Dropdown} from 'antd';
+import { useNavigate } from "react-router-dom";
+import { Avatar } from 'antd';
+import { userInfo } from "../hooks/user";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false)
   const [width, setWidth] = useState(window.innerWidth);
+  const navigate = useNavigate()
+
+
+  const logOut = () => {
+    localStorage.removeItem('uswms-login');
+    navigate('/signin');
+  };
+
+
+  const menuDropdown = (
+    <Menu>
+      <Menu.Item onClick={logOut}>Logout</Menu.Item>
+    </Menu>
+  );
+
+
+
 
   const toggleNav = () =>{
     if(showNav === true){
@@ -50,12 +71,28 @@ const Header = () => {
                 <li className="nav-item">
                   <Link to="/helping" className="nav-link">Helping</Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/signin" className="nav-link">Sign In</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/signup" className="nav-link">Join</Link>
-                </li>
+                {
+                userInfo('avatar') ? 
+                  <Dropdown overlay={menuDropdown} placement='bottomRight'>
+                  <Avatar
+                    size={40}
+                    icon={<span className="menu-icon">{userInfo('avatar')}</span>}
+                    className='cursor-pointer menu-avatar'
+                  />
+                </Dropdown>
+                  :
+                  <>
+                    <li className="nav-item">
+                    <Link to="/signin" className="nav-link">Sign In</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to="/signup" className="nav-link">Join</Link>
+                    </li>
+                  </>              
+        
+
+                }
+                
               </ul>
             </div>
             {/* respo nav bar  */}

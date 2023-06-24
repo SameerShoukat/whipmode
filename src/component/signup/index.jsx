@@ -12,14 +12,29 @@ import { occupation } from '../../utils/occupation';
 import CustomSelectBox from '../forms/selectBox';
 import {Row , Col } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
+import { postResponse } from '../../hooks/axios';
+import { message } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 const SignUp = () => {
   const [form] = useForm();
+  const Navigate = useNavigate();
+
   const onSignupFinish = (values)=>{
-    console.log(values)
+    postResponse('/users/signup', values)
+    .then(response => {
+      if(response && response.data){
+        message.success(response.data.message)
+        Navigate('/signin')
+      }
+      else{
+        message.error(response.data.message)
+      }
+    })
+  .catch(error => message.error(error.response.data.message))
   }
 
   return (
@@ -36,16 +51,16 @@ const SignUp = () => {
               >
                 <Row>
                   <Col md={12} span={24} className='signup-input'>
-                    <InputIcon name='first_name' icon={<UserOutlined />} message='Enter First Name' type="string" />
+                    <InputIcon name='firstName' icon={<UserOutlined />} message='Enter First Name' type="string" />
                   </Col>
                   <Col md={12} span={24} className='signup-input'>
-                    <InputIcon name='last_name' icon={<UserOutlined />} message='Enter last Name' type="string" />
+                    <InputIcon name='lastName' icon={<UserOutlined />} message='Enter last Name' type="string" />
                   </Col>
                   <Col span={24} className='signup-input'>
                     <InputIcon name='email' icon={<MailOutlined />} message='Enter Email' type="email" />
                   </Col>
                   <Col span={24} className='signup-input'>
-                    <CustomInputNumber name='mobile' icon={<PhoneFilled />} message='Enter Mobile' />
+                    <CustomInputNumber name='phoneNo' icon={<PhoneFilled />} message='Enter Mobile' />
                   </Col>
                   <Col span={24} className='signup-input'>
                     <InputPassword name='password' icon={<LockOutlined />} message='Enter Password' />
@@ -57,7 +72,7 @@ const SignUp = () => {
                     <CustomSelectBox name="occupation" message="Please select occupation" options={occupation}  />
                   </Col>
                   <Col span={24} className='signup-input'>
-                    <InputCheckBox name="policy" message="By creating your account, you acknowledge that Wipmode and Wipmode partner's Terms of Use and Privacy Notice apply to you." />
+                    <InputCheckBox name="policy" alert="Required" message="By creating your account, you acknowledge that Wipmode and Wipmode partner's Terms of Use and Privacy Notice apply to you." />
                   </Col>
                 </Row>
                 <FormButton value="Create Account" type="submit" />

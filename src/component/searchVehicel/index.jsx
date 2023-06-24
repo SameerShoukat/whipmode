@@ -8,11 +8,14 @@ import AutoComplete from "../forms/googleMapInput";
 import './style.css';
 import { message } from "antd";
 import { useEffect } from "react";
-import UseIsMounted from "../../hooks/mousted";
+import UseIsMounted from "../../hooks/mounted";
+import {postResponse} from '../../hooks/axios';
 
-const SearchVehicelForm = ({setCordinate, setReload}) => {
+const SearchVehicelForm = ({setCordinate, setReload, setExistCarList}) => {
   const [locaion, setLocation]  = useState()
   const [searchedLocation, setSearchedLocation] = useState(JSON.parse(localStorage.getItem('search-locaion')))
+
+  const [responseList, setReposnseList] = useState()
   const [startTime, setStartTime]  = useState()
   const [startDate, setStartDate]  = useState()
   const isMounted = UseIsMounted();
@@ -40,21 +43,25 @@ const SearchVehicelForm = ({setCordinate, setReload}) => {
       message.error('Location is required');
       return true;
     }
-    values ={...values, selectLocation : locaion}
-    localStorage.setItem('search-locaion', JSON.stringify(values));
-    setCordinate({ 
+    let location = { 
       lat: locaion.latitude,
       lng: locaion.longitude
+    }
+    values ={...values, selectLocation : locaion}
+    localStorage.setItem('search-locaion', JSON.stringify(values));
+    setCordinate(location)
+
+    postResponse('/vehicle/searchVehicle', location)
+    .then((res)=>{
+      if(res.data.status && res.data.data){
+        setExistCarList(res.data.data)
+      }
+      else{
+        message.error(res.data.message)
+      }
     })
-    setReload(true)
-    setTimeout(() => {
-      setReload(false)
-    }, 2000);
+    .catch(error => message.error(error.response.data.message))
   }
-
-
-
-
 
 
   return (
@@ -62,7 +69,7 @@ const SearchVehicelForm = ({setCordinate, setReload}) => {
         <Form 
           form={form}
           name="login"
-          className='search-form ' 
+          className='search-form' 
           initialValues={{}}
           onFinish={onFormSubmit}
         >

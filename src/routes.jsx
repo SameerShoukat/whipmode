@@ -46,7 +46,7 @@ export default function AppRoutes() {
                     <Pricing />
                 }>
                 </Route>
-                <Route path="/searchVehicel" element={
+                <Route path="/searchVehicle" element={
                     <SearchVehicel />
                 }>
                 </Route>

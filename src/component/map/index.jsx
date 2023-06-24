@@ -3,13 +3,11 @@ import {
   GoogleMap,
   LoadScript,
   MarkerF,
-  CircleF,
+  Marker
 } from '@react-google-maps/api';
 import { googleKey } from '../../api/index';
+import carImage from '../../assets/images/car-image.png'
 
-import { message } from 'antd';
-import axios from 'axios';
-import { api } from '../../api/index';
 const options = {
   strokeColor: '#20690e',
   strokeOpacity: 0.8,
@@ -24,18 +22,8 @@ const options = {
   zIndex: 1,
 };
 
-const carlist =[
-  {
-    latitude: 40.0632576,
-    longitude : -86.1500564
-  },
-  {
-    latitude: 30.0492308,
-    longitude : -95.8595124
-  }
-]
 
-export const StyleMap = (cordinate) => {
+export const StyleMap = ({cordinate, existCarList}) => {
 
   const [location, setLocation] = useState({})
   const [currentPosition, setCurrentPosition] = useState({});
@@ -66,6 +54,7 @@ export const StyleMap = (cordinate) => {
     width: '100%',
   };
 
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
   }, []);
@@ -86,18 +75,15 @@ export const StyleMap = (cordinate) => {
               position={currentPosition}
               draggable={true}
             />
-            <CircleF
-              center={currentPosition?.lat ? currentPosition : cordinate}
-              options={options}
-            />
-
             {
-              carlist && carlist.length > 0 && carlist.map((location) => (
+              existCarList && existCarList.length > 0 && existCarList.map((location) => (
                   <>
-                      <CircleF
-                        center={{lat: location.latitude , lng: location.longitude}}
-                        options={options}
-                      />
+                      <Marker
+                        position={{lat: location.location.coordinates[0] , lng: location.location.coordinates[1]}}
+                        icon={carImage}
+                      >
+                        <img src={carImage} alt="car-image"  />  
+                      </Marker>
                   </>
                   ))}
           </GoogleMap>

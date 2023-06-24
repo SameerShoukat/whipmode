@@ -1594,6 +1594,9 @@ footer {
 .mobile-nav-toggle{
   display: none;
 }
+.signin-form-cont svg{
+  color: #ffffff !important;
+}
 @media screen and (max-width: 992px) {
   .mobile-nav-toggle{
     display: block;
@@ -1718,6 +1721,10 @@ footer {
 }
 
 
-
-
-
+.ant-avatar.ant-avatar-icon {
+  font-size: 18px;
+  background: white;
+  color: #eb4e4a;
+  text-transform: uppercase;
+  border: 1px solid;
+}

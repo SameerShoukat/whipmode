@@ -9,25 +9,66 @@ import InputIcon from '../forms/inputIcon';
 import InputPassword from '../forms/inputPassword';
 import InputCheckBox from '../forms/inputCheckbox';
 import FormButton from '../forms/button';
-import { api } from '../../api';
-//component scss
-import axios from 'axios';
-
+import { postResponse } from '../../hooks/axios';
+import UseIsMounted from '../../hooks/mounted.jsx'
+import { useForm } from 'antd/lib/form/Form';
+import { useEffect } from 'react';
 
 
 
 const Signin = () => {
-  const navigate = useNavigate()
+  const [form] = useForm();
+  const Navigate = useNavigate();
   const [formToggle, setFormToggle] = useState(true)
+  const isMounted = UseIsMounted()
+
+  useEffect(()=>{
+    function getUserInfo(){
+      if(isMounted.current){
+        let loginDetail =  JSON.parse(localStorage.getItem('wipsignDetails'))
+        if(loginDetail){
+          form.setFieldsValue({
+            email : loginDetail.email,
+            password : loginDetail.password,
+            remember : loginDetail.remember
+          })
+        }
+      }
+    }
+    getUserInfo()
+    
+
+  },[])
+
+
 
   // loginSubmit
-  const onLoginFinish = (values) => {
-    console.log(values)
-  };
+  const onLoginFinish = (values)=>{
+    if(values.remember){
+      localStorage.setItem('wipsignDetails', JSON.stringify(values))
+    }
+
+    postResponse('/users/signin', values)
+    .then(response => {
+      if(response && response.data){
+        message.success(response.data.message)
+        localStorage.setItem('wipUserInfo', JSON.stringify(response.data.data))
+        Navigate('/searchVehicle')
+      }
+      else{
+        message.error(response.data.message)
+      }
+    })
+    .catch(error => message.error(error.response.data.message))
+  }
+
+
 
   const onPasswordFinish = (values) =>{
     console.log(values)
   }
+
+
 
 
   return (
@@ -37,6 +78,7 @@ const Signin = () => {
             <>
               {/* Sign in screen */}
               <Form
+                form={form}
                 name="login"
                 className='signin-form'
                 initialValues={{
@@ -44,7 +86,7 @@ const Signin = () => {
                 }}
                 onFinish={onLoginFinish}
               >
-                <InputIcon name='userName' icon={<UserOutlined />} message='Enter your username' type="string" />
+                <InputIcon name='email' icon={<UserOutlined />} message='Enter your email' type="string" />
                 <InputPassword name='password' icon={<LockOutlined />} message='Enter your password' type="string" />
                 <div className='d-flex remember-me align-items-center justify-content-between'>
                     <label htmlFor="remember" className='text-white mx-2'>

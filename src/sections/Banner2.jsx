@@ -14,7 +14,7 @@ const Banner2 = () => {
                 <h1 className="main-heading">How It<span className="red-color">Works</span></h1>
                 <p className="main-para-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                 <div className="banner-btns-sec">
-                  <Link to="/searchVehicel" className="redbtn">Get Started</Link>
+                  <Link to="/searchVehicle" className="redbtn">Get Started</Link>
                   <Link to="/howItWork" className="bdr-btn-black">Learn More</Link>
                 </div>
               </div>

@@ -14,7 +14,7 @@ const Banner = () => {
                                     <h1 className="main-heading mb-0">Better Car With<span className="red-color"> Great Rates</span></h1>
                                     <p className="main-para-black mb-0 py-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                                     <div className="banner-btns-sec">
-                                        <Link to="/searchVehicel" className="redbtn">Get Started</Link>
+                                        <Link to="/searchVehicle" className="redbtn">Get Started</Link>
                                         <Link to="/howItWork" className="bdr-btn-black">Learn More</Link>
                                     </div>
                                 </div>

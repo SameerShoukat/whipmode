@@ -13,7 +13,7 @@ const Banner4 = () => {
                                     <h1 className="main-heading">Help</h1>
                                     <p className="main-para-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
                                     <div className="banner-btns-sec">
-                                        <Link to="/searchVehicel" className="redbtn">Get Started</Link>
+                                        <Link to="/searchVehicle" className="redbtn">Get Started</Link>
                                         <Link to="/howItWork" className="bdr-btn-black">Learn More</Link >
                                     </div>
                                 </div>

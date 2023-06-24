@@ -23,7 +23,7 @@ export default function InputConfirmPassword({ name, icon, message }) {
           }),
         ]}
         >
-            <Input
+            <Input.Password
                 prefix={icon}
                 type="password"
                 placeholder="Confirm Password"

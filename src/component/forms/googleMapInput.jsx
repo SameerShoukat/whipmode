@@ -85,7 +85,7 @@ function AutoComplete({setLocation, value}) {
               onPlacesChanged={onPlacesChanged}
               onLoad={onSBLoad}
             >
-              <input type="text" placeholder='Enter a loation' className='location-input'  />
+              <input type="text" placeholder='Enter a location' className='location-input'  />
             </StandaloneSearchBox>
         </div>
     </LoadScript>

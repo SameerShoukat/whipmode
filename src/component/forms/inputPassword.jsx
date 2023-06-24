@@ -1,4 +1,6 @@
 import { Form, Input } from 'antd';
+import { EyeTwoTone } from '@ant-design/icons';
+import { useState } from 'react';
 
 export default function InputPassword({ name, icon, message }) {
     return (
@@ -13,7 +15,7 @@ export default function InputPassword({ name, icon, message }) {
                 },
             ]}
         >
-            <Input
+            <Input.Password
                 prefix={icon}
                 type="password"
                 placeholder="Password"
